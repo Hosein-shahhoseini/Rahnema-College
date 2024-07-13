@@ -1,0 +1,19 @@
+POST http://localhost:3000/add 
+Content-Type: application/json
+
+{
+    "user" : {
+        "type" : "admin" ,
+        "username" : "Hosein" ,
+        "age" : "20",
+        "password" : "myPassWorld"
+    },
+    "planName" : "sport" ,
+    "description" : "this is temp and do not have a valid value!",
+    "dueDateTarh" : "2012-04-21T18:25:43-05:00",
+    "dueDateVote" : "2012-04-21T18:25:43-05:00"
+}
+
+
+###
+GET http://localhost:3000/plans
