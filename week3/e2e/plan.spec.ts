@@ -13,7 +13,7 @@ describe("Plan",() => {
             await Request(app).post("/plan").expect(401);
         });
 
-        it.skip("should fail if user is not admin" , async() => {
+        it("should fail if user is not admin" , async() => {
             const user = await loginRepTest();
             const today = new Date();
             const tomorrow = new Date(today.setDate(today.getDate() + 1));
@@ -28,7 +28,7 @@ describe("Plan",() => {
             .expect(403);
         });
 
-        it.skip("should create a plan if we are logged in" , async() => {
+        it("should create a plan if we are logged in" , async() => {
             const user  = await loginAdminTest();
             const today = new Date();
             const tomorrow = new Date(today.setDate(today.getDate() + 1));

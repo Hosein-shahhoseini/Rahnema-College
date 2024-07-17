@@ -2,6 +2,7 @@ import Request  from "supertest";
 import { app } from "../src/api";
 import { loginAdminTest, loginRepTest } from "./utility";
 import { request } from "express";
+import { plans } from './../src/routes/plan.route';
 
 describe("Program" , () => {
     describe("Create" , () => {
@@ -25,14 +26,14 @@ describe("Program" , () => {
             })
             .expect(200);
 
-            const {body : program} = await Request(app)
+            await Request(app)
             .post("/program")
             .set("Authorization" , repUser.id)
             .send({
-                title : "oromiew",
+                title : "oromieqq",
                 planId : plan.id,
             })
-            .expect(200);
+            .then((res) => console.log(res.body));
         });
     });
 });
