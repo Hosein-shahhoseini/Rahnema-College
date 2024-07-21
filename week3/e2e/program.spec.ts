@@ -10,13 +10,13 @@ describe("Program" , () => {
            await Request(app).post("/program").expect(401);
         });
 
-        it.skip("should create a program" , async() => {
+        it("should create a program" , async() => {
             const adminUser = await loginAdminTest();
             const repUser = await loginRepTest();
 
             const today = new Date();
             const tomorrow = new Date(today.setDate(today.getDate() + 1));
-            const { body : plan } = await Request(app)
+            const res = await Request(app)
             .post("/plan")
             .set("Authorization" , adminUser.id)
             .send({
@@ -24,8 +24,12 @@ describe("Program" , () => {
                 description : "Oromie kojas dige",
                 deadline : tomorrow,
             })
-            .expect(200);
 
+            expect(res.status).toBe(200);
+            const plan  = res.body;
+
+            console.log('PLAN_ID: '+ plan.id);
+            
             await Request(app)
             .post("/program")
             .set("Authorization" , repUser.id)
@@ -33,7 +37,7 @@ describe("Program" , () => {
                 title : "oromieqq",
                 planId : plan.id,
             })
-            .then((res) => console.log(res.body));
+            .expect(200);
         });
     });
 });

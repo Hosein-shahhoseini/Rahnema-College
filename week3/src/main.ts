@@ -15,5 +15,5 @@ declare global {
 
 const PORT = 3000;
 app.listen(PORT , () => {
-    console.log("Listening on Prot " + PORT);
+    // console.log("Listening on Prot " + PORT);
 });

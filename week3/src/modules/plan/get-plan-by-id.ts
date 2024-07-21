@@ -3,9 +3,11 @@ import { HttpError } from "../../utility/my-errors";
 
 export const getPalnById = (id: number): plan => {
     const plan = plans.find((x) => x.id = id);
-
+    // console.log( "my plan is :" + plan);
     if (plan === undefined) {
-        throw new HttpError(400 , "Plan not found");
+        throw new HttpError(400, "Plan not found");
     }
+    
     return plan;
+
 }

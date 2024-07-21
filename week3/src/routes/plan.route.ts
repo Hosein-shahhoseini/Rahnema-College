@@ -27,6 +27,7 @@ export const plans: plan[] = [];
 
 app.post("/", loginMiddleware ,(req, res) => {
     try {
+        console.log("myyyyyyy id : ");
         const dto = createPlanDto.parse(req.body);
         handelExpress(res , () =>   createPaln(dto , req.user));
     }catch(e){
@@ -42,6 +43,7 @@ app.post("/", loginMiddleware ,(req, res) => {
 app.get("/:id", (req, res) => {
     try{
         const id = z.coerce.number().parse(req.params.id);
+        // console.log("myyyyyyy id : "+getPalnById(id).id);
         handelExpress(res , () => getPalnById(id));
     }catch(e)
     {

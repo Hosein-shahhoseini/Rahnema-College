@@ -21,4 +21,5 @@ export const createPaln = (dto: CreatePlanDto ,loggedInUser : user) => {
         throw new HttpError(403 , "you are not authorized");
     }
     plans.push(plan);
+    return plan;
 };

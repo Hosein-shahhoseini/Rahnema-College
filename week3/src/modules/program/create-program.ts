@@ -33,7 +33,7 @@ export const canCreateProgram = (user : user , plan : plan)  => {
     if(program){
         return false;
     }
-    if(new Date().getTime()  > plan.deadline.getTime()){
+    if(new Date().getTime()  < plan.deadline.getTime()){
         return false;
     }
     return true;
